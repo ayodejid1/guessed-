@@ -1,0 +1,137 @@
+using System.Globalization;
+using System;
+
+namespace Guessed
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to Guessed, Please select level. Easy(E), Medium(M), Hard(H)");
+            
+            var input = Console.ReadLine().ToUpper();
+            
+            
+            char input2;
+            if (char.TryParse(input, out input2))
+            {
+                if(input == "E")
+                {
+                    Console.WriteLine("E selected! ");
+
+                    var random = new Random();
+                    var numRange = random.Next(1, 10);
+                    var numofGuessesLeft = 6;
+
+                    var guess = 0;
+                    Console.WriteLine("Guess a number between 1 and 10");
+
+                    while (guess != numRange)
+                    {
+                        numofGuessesLeft--;
+                        var input3 = Console.ReadLine();
+                        guess = int.Parse(input3);
+                        if (guess != numRange)
+                        {
+                            Console.WriteLine("That was wrong!");
+                             Console.WriteLine($"you have {numofGuessesLeft} guess left");
+                        }
+                        if(numofGuessesLeft == 0)
+                        {
+                            Console.WriteLine("Game over");
+                            break;
+                        }
+                    }
+                    if (guess == numRange)
+                    {
+                        Console.WriteLine("you got it right");
+                    }
+
+
+                }
+
+                else if(input == "M")
+                {
+
+                    Console.WriteLine("Medium level selected! ");
+
+                    var random = new Random();
+                    var numRange = random.Next(1, 20);
+                    var numofGuessesLeft = 4;
+
+                    var guess = 0;
+                    Console.WriteLine(" guess a number between 1 and 20");
+
+                    while(guess != numRange)
+
+                    {
+                        numofGuessesLeft--;
+                        var input3 = Console.ReadLine();
+                        guess = int.Parse(input3);
+                    
+                        if(guess != numRange)
+                        {
+                            Console.WriteLine("this was wrong!");
+                            Console.WriteLine($"you have {numofGuessesLeft} guess left");
+                        }
+
+                        if(numofGuessesLeft == 0)
+                        {
+                            Console.WriteLine("Game over");
+                            break;
+                        }
+                    }
+                    if(guess == numRange)
+                    {
+                        Console.WriteLine("You got it right");
+                    }
+                }
+
+                else if(input == "H")
+                {
+                    Console.WriteLine("Hard level selected! ");
+
+                    var random = new Random();
+                    var numRange = random.Next(1, 50);
+                    var numofGuessesLeft = 3;
+
+                    var guess = 0;
+                    Console.WriteLine("choose a number between 1 and 50");
+
+                    while(guess != numRange)
+                    {
+                        numofGuessesLeft--;
+                        var input3 = Console.ReadLine();
+                        guess = int.Parse(input3);
+
+                        if(guess != numRange)
+                        {
+                            Console.WriteLine("this was wrong! ");
+                            Console.WriteLine($"you have {numofGuessesLeft} guess left");
+                        }
+                        if(numofGuessesLeft == 0)
+                        {
+                            Console.WriteLine("Game over");
+                            break;
+                        }
+                    }
+                    if(guess == numRange)
+                    {
+                        Console.WriteLine("you got it right");
+                    }
+
+
+                }
+
+                
+                 
+            }
+
+             
+               
+
+           
+            
+        }
+    }
+}
